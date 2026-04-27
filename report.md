@@ -12,13 +12,13 @@ To design and implement an e-commerce platform schema using MongoDB, write advan
 
 ## 2. OBJECTIVES
 
-By the end of this practical, the student should be able to:
+The main objectives of this practical are:
 
-- Model a realistic e-commerce domain (users, products, orders) using MongoDB's document-oriented data model.
-- Implement the designed schema as MongoDB collections with appropriate fields and sample data.
-- Construct aggregation pipelines for analytics and reporting use cases.
-- Create and tune indexes (single, compound, text) to support common read/write patterns efficiently.
-- Use `explain()` to identify slow queries and verify the impact of optimizations.
+- To design and create a MongoDB database schema for a simple e-commerce platform consisting of users, products, categories and orders collections.
+- To insert sample data into the collections and understand how embedding and referencing works in MongoDB.
+- To write aggregation queries to analyse sales data like daily revenue, top products and customer spending.
+- To create indexes such as compound and text indexes to make queries faster.
+- To use explain() to compare query speed before and after adding indexes.
 
 ---
 
@@ -551,21 +551,15 @@ db.orders.find(
 | totalKeysExamined | 0 | 2 |
 | executionTimeMillis | 0 | 1 |
 
-The query plan changed from COLLSCAN to IXSCAN after creating the index, proving that MongoDB now uses the index instead of scanning all documents. In a real system with millions of documents, this difference would be significant.
+After creating the index, MongoDB changed from COLLSCAN to IXSCAN. This means MongoDB now uses the index to find documents directly instead of checking every document one by one. In a real e-commerce system with millions of orders, using an index would make queries much faster.
 
 ---
 
 ## 9. CONCLUSION
 
-This practical successfully demonstrated how to:
-
-- Design a MongoDB e-commerce schema using embedding and referencing patterns
-- Insert sample data across 4 collections (users, categories, products, orders)
-- Write 4 aggregation pipelines for analytics and reporting
-- Create 4 indexes including compound and text indexes
-- Use explain() to verify query optimization before and after indexing
-
-The key learning from this practical is that MongoDB's flexible schema and aggregation framework make it well suited for e-commerce applications, and proper indexing is critical for query performance at scale.
+In this practical, I learned how to design a MongoDB database for a simple e-commerce platform. I created 4 collections and inserted sample data, and understood the difference between embedding and referencing.
+I wrote 4 aggregation queries to analyse sales data and used $lookup to join data from different collections. I also created 4 indexes and used explain() to compare query performance before and after indexing. I could clearly see that IXSCAN is faster than COLLSCAN because MongoDB uses the index instead of scanning every document.
+Overall this practical helped me understand how MongoDB works in real world applications and why indexing is important for performance.
 
 ---
 
