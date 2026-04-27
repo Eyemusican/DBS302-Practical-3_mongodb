@@ -26,9 +26,6 @@ The main objectives of this practical are:
 
 - MongoDB Atlas (Free Tier) – Cloud database
 - mongosh 2.8.2 – MongoDB Shell
-- VS Code – Script editor
-- GitHub – Repository hosting
-- Windows 10 – Operating System
 
 ---
 
